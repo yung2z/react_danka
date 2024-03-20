@@ -21,3 +21,18 @@ body {
   gap: 5px;
   margin: 0 auto;
 }
+.calculator{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2px;
+}
+.item{
+  border: 1px solid black;
+  height: 120px;
+  width: calc(100%/3 - 2px);
+  font-size: 32px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
