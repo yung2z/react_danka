@@ -4,6 +4,7 @@ import Input from "./components/Input/Input";
 import Button from "./components/Button/Button";
 import getPosts from "./api/posts.api";
 import getProgression from "./helpers/get-progression";
+import Select from "./components/Select/Select";
 
 function App() {
   const [posts, setPosts] = useState([]);
@@ -38,6 +39,9 @@ function App() {
       posts.slice((pageNumber - 1) * countOnPage, pageNumber * countOnPage)
     );
   }
+  function changeLimit(e) {
+    setLimit(e);
+  }
 
   return (
     <>
@@ -50,14 +54,12 @@ function App() {
         <Button>Создать</Button>
       </form>
 
-      <select
-        onChange={(event) => setLimit(event.target.value)}
-      >
+      <Select changeLimit={changeLimit}>
         <option value="10">10</option>
         <option value="20">20</option>
         <option value="30">30</option>
         <option value="50">50</option>
-      </select>
+      </Select>
 
       <div className="container">
         {posts.length == 0 ? (
